@@ -1,8 +1,3 @@
-from django.shortcuts import get_object_or_404
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, viewsets
-from rest_framework.pagination import PageNumberPagination
-
 from api.titles.serializers import (CategorySerializer, CommentSerializer,
                                     GenreSerializer, ReviewSerializer,
                                     TitleCreateSerializer, TitleReadSerializer)
@@ -10,6 +5,10 @@ from api.utils.filters import TitleFilter
 from api.utils.mixins import ListCreateDestroyMixin
 from api.utils.permissions import (IsAdminOrModeratorOrReadOnly,
                                    IsAdminOrReadOnly)
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, viewsets
+from rest_framework.pagination import PageNumberPagination
 from reviews.models import Category, Genre, Review, Title
 
 

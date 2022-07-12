@@ -10,12 +10,11 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-
 from users.models import User
 from users.users.serializers import (SignUpSerializer, TokenSerializer,
                                      UserSerializer)
-from users.utils.permissions import IsAdmin
 from users.utils.httpmethod import HTTPMethod
+from users.utils.permissions import IsAdmin
 
 
 @api_view(["POST"])
