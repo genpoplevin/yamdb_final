@@ -65,6 +65,8 @@ POSTGRES_USER - можно использовать значение postgres
 POSTGRES_PASSWORD  - можно использовать значение postgres
 DB_HOST - можно использовать значение db
 DB_PORT - можно использовать значение 5432
+DOCKER_PASSWORD - пароль от dockerhub
+DOCKER_USERNAME - имя пользователя dockerhub
 TELEGRAM_TO - id вашего телеграм аккаунта
 TELEGRAM_TOKEN - токен телеграм-бота (в workflow настроена отправка ботом сообщения об успешном деплое проекта на удалённый сервер)
 
