@@ -1,5 +1,5 @@
-![yamdb_workflow](https://github.com/genpoplevin/yamdb_final/workflows/yamdb_workflow/badge.svg)
 # yamdb_final
+![yamdb_workflow](https://github.com/genpoplevin/yamdb_final/workflows/yamdb_workflow/badge.svg)
 
 REST API для сервиса отзывов YaMDb с возможностью автоматически развернуть данный проект на удалённом сервере в docker-контейнере с помощью настроенного для автоматической проверки, сборки, развёртывания и отправки в telegram сообщения workflow.
 
