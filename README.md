@@ -1,4 +1,4 @@
-![yamdb_workflow](https://github.com/genpoplevin/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)
+![yamdb_workflow](https://github.com/genpoplevin/yamdb_final/workflows/yamdb_workflow/badge.svg)
 
 # yamdb_final
 
@@ -49,24 +49,55 @@ cd .../Dev/
 sudo apt install docker.io
 ```
 
- 
+Установите docker-compose
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
 
-Выполняем миграции: 
-```bash 
-docker-compose exec web python manage.py makemigrations reviews 
+Скопируйте файлы docker-compose.yaml и nginx/default.conf из вашего проекта на сервер в home/<ваш_username>/docker-compose.yaml и home/<ваш_username>/nginx/default.conf соответственно
+
+Добавьте в Secrets GitHub Actions:
+HOST - ip вашего удалённого сервера
+USER - имя пользователя
+SSH_KEY
+PASSPHRASE - пароль
+DB_ENGINE - можно использовать значение 'django.db.backends.postgresql'
+POSTGRES_USER - можно использовать значение postgres 
+POSTGRES_PASSWORD  - можно использовать значение postgres
+DB_HOST - можно использовать значение db
+DB_PORT - можно использовать значение 5432
+TELEGRAM_TO - id вашего телеграм аккаунта
+TELEGRAM_TOKEN - токен телеграм-бота (в workflow настроена отправка ботом сообщения об успешном деплое проекта на удалённый сервер)
+
+Запуск workflow
+Чтобы workflow запустился, нужно сделать push в мастер ветку репозитория:
+Подготовьте локальный репозиторий к первому коммиту, сделайте коммит и запушьте его в удалённый репозиторий:
+```
+(venv) ... Dev/yamdb_final$ git add .
+(venv) ... Dev/yamdb_final$ git commit -m 'ваш_комментарий'
+(venv) ... Dev/yamdb_final$ git push
+```
+
+Файлы проекта запушатся в Git, в ветку master. После этого должен был сработать workflow, а телеграм-бот пришлёт сообщение об успешном деплое проекта.
+
+
+На удалённом сервере выполняем миграции: 
 ``` 
-```bash 
-docker-compose exec web python manage.py migrate --run-syncdb
+sudo docker-compose exec web python manage.py makemigrations reviews 
+``` 
+``` 
+sudo docker-compose exec web python manage.py migrate --run-syncdb
 ``` 
 
 Создаем суперпользователя: 
-```bash 
-docker-compose exec web python manage.py createsuperuser 
+``` 
+sudo docker-compose exec web python manage.py createsuperuser 
 ``` 
 
 Србираем статику: 
-```bash 
-docker-compose exec web python manage.py collectstatic --no-input 
+``` 
+sudo docker-compose exec web python manage.py collectstatic --no-input 
 ``` 
 
 
