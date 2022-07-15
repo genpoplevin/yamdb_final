@@ -22,27 +22,12 @@ REST API для сервиса отзывов YaMDb с возможностью 
 ```
 git clone https://github.com/genpoplevin/yamdb_final.git
 ```
-### Перейти в папку yamdb_final/
+### Перейти в папку yamdb_final/infra
 ```
-cd yamdb_final
-```
-
-### Cоздать и активировать виртуальное окружение:
-
-```
-python -m venv venv
+cd yamdb_final/infra
 ```
 
-```
-source venv/Scripts/activate
-```
-
-### Установить зависимости из файла requirements.txt:
-```
-pip install -r requirements.txt
-```
-
-### Из папки yamdb_final/infra в терминале выполните команду:
+### Выполните команду:
 ```
 docker-compose up -d --build
 ```
