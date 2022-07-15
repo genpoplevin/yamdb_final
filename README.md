@@ -22,7 +22,7 @@ REST API для сервиса отзывов YaMDb с возможностью 
 ```
 git clone https://github.com/genpoplevin/yamdb_final.git
 ```
-### Перейти в папку yamdb_final/infra
+### Перейдите в папку yamdb_final/infra
 ```
 cd yamdb_final/infra
 ```
