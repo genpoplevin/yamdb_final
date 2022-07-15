@@ -22,12 +22,12 @@ REST API для сервиса отзывов YaMDb с возможностью 
 ```
 git clone https://github.com/genpoplevin/yamdb_final.git
 ```
-Перейти в папку yamdb_final/
+# Перейти в папку yamdb_final/
 ```
 cd yamdb_final
 ```
 
-Cоздать и активировать виртуальное окружение:
+# Cоздать и активировать виртуальное окружение:
 
 ```
 python -m venv venv
